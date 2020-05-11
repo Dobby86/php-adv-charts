@@ -1,35 +1,62 @@
 
 $(document).ready(function(){
 
-
 // line
 function printLineChartDemo() {
+
+    $.ajax({
+        url: "server.php",
+        method: "GET",
+        success : function(pluto) {
+
+            var punti = pluto.data;
+            var mesi = pluto.labels;
+            console.log(mesi);
+            console.log(punti);
+
+        }
+
+    });
 
     var ctx = $("#line");
 
     var myChart = new Chart(ctx, {
+
     type: 'line',
 
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# VENDITE',
+            data: [1000,1322,1123,2301,3288,988,502,2300,5332,2300,1233,2322],
+
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(150, 33, 146, 1)',
+                    'rgba(82, 40, 204, 1)',
+                    'rgba(4, 51, 255, 1)',
+                    'rgba(0, 146, 146, 1)',
+                    'rgba(0, 249, 0, 1)',
+                    'rgba(202, 250, 0, 1)',
+                    'rgba(255, 251, 0, 1)',
+                    'rgba(255, 199, 0, 1)',
+                    'rgba(255, 147, 0, 1)',
+                    'rgba(255, 80, 0, 1)',
+                    'rgba(255, 38, 0, 1)',
+                    'rgba(216, 34, 83, 1)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(150, 33, 146, 1)',
+                    'rgba(82, 40, 204, 1)',
+                    'rgba(4, 51, 255, 1)',
+                    'rgba(0, 146, 146, 1)',
+                    'rgba(0, 249, 0, 1)',
+                    'rgba(202, 250, 0, 1)',
+                    'rgba(255, 251, 0, 1)',
+                    'rgba(255, 199, 0, 1)',
+                    'rgba(255, 147, 0, 1)',
+                    'rgba(255, 80, 0, 1)',
+                    'rgba(255, 38, 0, 1)',
+                    'rgba(216, 34, 83, 1)'
             ],
             borderWidth: 3
         }]
@@ -44,6 +71,7 @@ function printLineChartDemo() {
         }
     }
 });
+
 }
 
 printLineChartDemo();
