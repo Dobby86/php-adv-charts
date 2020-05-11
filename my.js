@@ -15,10 +15,6 @@ function printLineChartDemo() {
             console.log(punti);
             // ----
 
-            console.log("ho i dati");
-
-            console.log("uso i dati");
-
             var ctx = $("#line");
 
             var myChart = new Chart(ctx, {
