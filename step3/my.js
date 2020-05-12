@@ -135,7 +135,93 @@ function printLineChartDemo() {
         }
 
     });
-    
+    // terzo grafico //////////////////////
+    $.ajax({
+        url: "server.php",
+        method: "GET",
+        success : function(gara) {
+            console.log('la gara appare in',gara);
+
+            var risultati = gara[2].risultati;
+            var mesi = gara[2].labels;
+
+            console.log(risultati);
+            console.log(mesi);
+            // ----
+
+
+            var ctx = $("#tripleline");
+
+            var myChart = new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+                labels: mesi,
+                datasets: [{
+                    label: '# team1',
+                    data: gara[2].risultati.Team1,
+
+                    backgroundColor: [
+
+                            'rgba(0, 146, 146, 1)'
+
+                    ],
+                    borderColor: [
+
+                        'rgba(0, 146, 146, 1)'
+
+                    ],
+                    borderWidth: 2
+                },{
+                    label: '# team2',
+                    data: gara[2].risultati.Team2,
+
+                    backgroundColor: [
+
+                            'rgba(0, 249, 0, 1)'
+
+                    ],
+                    borderColor: [
+
+                            'rgba(0, 249, 0, 1)'
+
+                    ],
+                    borderWidth: 2
+                },{
+                    label: '# team3',
+                    data: gara[2].risultati.Team3,
+
+                    backgroundColor: [
+
+                            'rgba(216, 34, 83, 1)'
+                    ],
+                    borderColor: [
+
+                            'rgba(216, 34, 83, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+            });
+
+        },
+        error : function(){
+            alert("step 1 no good");
+        }
+
+    });
+
+
 
 
 }
