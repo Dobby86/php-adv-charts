@@ -20,6 +20,17 @@
                 <div class="col">
 
                     <canvas id="line" ></canvas>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+
                         <canvas id="pie" ></canvas>
 
 
@@ -27,6 +38,7 @@
 
             </div>
         </div>
+
 
 
     <script src="my.js" charset="utf-8"></script>
